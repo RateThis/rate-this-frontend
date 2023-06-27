@@ -77,6 +77,11 @@ input {
   border-radius: 0;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 *:focus {
   outline: none;
 }
