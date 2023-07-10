@@ -1,0 +1,9 @@
+<app-form-wrapper>
+    <form [formGroup]="userForm" (submit)="onSubmit()">
+        <label for="email"></label>
+        <input type="email" id="email" name="email" formControlName="email">
+
+        <label for="password"></label>
+        <input type="password" id="password" name="password" formControlName="password">
+    </form>
+</app-form-wrapper>

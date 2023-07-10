@@ -3,9 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+
 import { CoreModule } from './core/core.module';
 
 const routes: Routes = [
+  {
+    path: 'auth',
+    loadChildren: () =>
+      import("./features/auth/auth.module").then((m) => m.AuthModule)
+  },
   {
     path: 'home',
     loadChildren: () =>
@@ -24,8 +30,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
-    CoreModule
+    CoreModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

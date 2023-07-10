@@ -1,0 +1,12 @@
+@use '../components/input' as input;
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+
+    input {
+        @include input.auth-input();
+        margin: 10px 0;
+    }
+}
