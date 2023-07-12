@@ -1,0 +1,26 @@
+@use "sass:map";
+@use "src/assets/scss/utilities/variables" as var;
+
+body {
+  background-color: map.get(var.$themes, "primary") !important;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background-color: map.get(var.$themes, "secondary");
+  padding: 3em 3.5em;
+  -webkit-box-shadow: 5px 8px 18px -12px rgba(0, 0, 0, 1);
+  -moz-box-shadow: 5px 8px 18px -12px rgba(0, 0, 0, 1);
+  box-shadow: 5px 8px 18px -12px rgba(0, 0, 0, 1);
+}

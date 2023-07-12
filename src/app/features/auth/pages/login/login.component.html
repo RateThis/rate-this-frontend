@@ -1,0 +1,35 @@
+<app-form-wrapper>
+    <h2 class="title">RateThis!</h2>
+    <form [formGroup]="userForm" (submit)="onSubmit()">
+        <label for="email">Type email</label>
+        <input type="email" id="email" name="email" formControlName="email">
+        <div class="error-wrapper">
+            <div *ngIf="userForm.get('email')?.touched || userForm.get('email')?.dirty">
+                <app-auth-error *ngIf="userForm.get('email')?.hasError('required')">
+                    Email not provided
+                </app-auth-error>
+                <app-auth-error *ngIf="userForm.get('email')?.hasError('email')">
+                    Invalid email
+                </app-auth-error>
+            </div>
+        </div>
+
+        <label for="pswd">Type password</label>
+        <input type="password" id="pswd" name="pswd" formControlName="pswd">
+        <div class="error-wrapper">
+            <div *ngIf="userForm.get('pswd')?.touched || userForm.get('pswd')?.dirty">
+                <app-auth-error *ngIf="userForm.get('pswd')?.hasError('required')">
+                    Password not provided
+                </app-auth-error>
+                <app-auth-error *ngIf="userForm.get('pswd')?.hasError('minlength')">
+                    Password too short (8 minimum)
+                </app-auth-error>
+            </div>
+        </div>
+
+        <button type="submit">Log in</button>
+        <span class="link-wrapper">
+            or <a routerLink="/auth/register">Sign Up</a>
+        </span>
+    </form>
+</app-form-wrapper>

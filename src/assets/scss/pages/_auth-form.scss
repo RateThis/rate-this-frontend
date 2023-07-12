@@ -1,0 +1,64 @@
+@use "sass:map";
+@use "../utilities/variables" as var;
+@use "../components/input" as input;
+@use "../components/buttons" as btn;
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  font-size: 1.2em;
+
+  input {
+    @include input.auth-input();
+    margin-top: 10px;
+    margin-bottom: 5px;
+
+    &.ng-invalid.ng-touched {
+      outline: 2px solid map.get(var.$themes, "danger");
+    }
+  }
+
+  a {
+    color: map.get(var.$themes, "focus-secondary");
+    font-size: max(14px, 0.8em);
+    text-decoration: underline;
+
+    &:focus:not(:hover) {
+      border: 1px dashed map.get(var.$themes, "focus-primary");
+    }
+
+    &:hover,
+    &:focus {
+      color: map.get(var.$themes, "focus-primary");
+    }
+  }
+
+  button {
+    @include btn.auth-button();
+    margin: 10px 0;
+  }
+
+  .error-wrapper {
+    height: 1.9em;
+    margin-bottom: 5px;
+  }
+
+  .link-wrapper {
+    font-size: max(14px, 0.8em);
+  }
+
+  app-auth-error {
+    display: none;
+    
+    &:first-of-type {
+      display: initial;
+    }
+  }
+}
+
+.title {
+  text-align: center;
+  letter-spacing: 3px;
+  margin-bottom: 1em;
+}

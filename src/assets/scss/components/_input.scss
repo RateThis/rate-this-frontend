@@ -1,0 +1,23 @@
+@use "sass:map";
+@use "../utilities/variables" as var;
+
+@mixin auth-input() {
+  width: 100%;
+  font-size: 1rem;
+  font-weight: bolder;
+  padding: 10px 15px;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+  outline: none;
+  background-color: map.get(var.$themes, "font-primary");
+  border-left: 1px solid map.get(var.$themes, "font-primary");
+
+  &:focus {
+    outline: 3px solid map.get(var.$themes, "focus-secondary");
+  }
+
+  &[type="password"] {
+    letter-spacing: 4px;
+  }
+}

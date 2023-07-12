@@ -1,0 +1,14 @@
+@use "sass:map";
+@use "src/assets/scss/utilities/variables" as var;
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+    background-color: map.get(var.$themes, "danger");
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: 3px solid darken(map.get(var.$themes, "danger"), 5%);
+    font-size: 0.8em;
+    font-weight: bolder;
+    color: map.get(var.$themes, "font-primary");
+}
