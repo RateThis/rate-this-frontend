@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'RateThis!';
+
+  public isLoggedIn(): boolean {
+    return !!localStorage.getItem("logged");
+  }
 }

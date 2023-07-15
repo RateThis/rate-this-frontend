@@ -18,13 +18,18 @@
     </div>
     <div class="navbar-end">
         <div class="ctn-settings">
-            <a href="#">
+            <a href="#" title="profile">
                 <i class="fa-solid fa-user"></i>
             </a>
         </div>
         <div class="ctn-settings">
-            <a href="#">
+            <a href="#" title="settings">
                 <i class="fa-solid fa-gear"></i>
+            </a>
+        </div>
+        <div class="ctn-settings">
+            <a href="#" title="log out" (click)="authService.logout();">
+                <i class="fa-solid fa-lg fa-right-from-bracket"></i>
             </a>
         </div>
     </div>
