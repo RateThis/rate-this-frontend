@@ -1,0 +1,10 @@
+<div class="carousel-wrapper">
+    <div class="carousel" [pager]="currentPage" [pageSize]="maxElemsPerSLide">
+        <ng-content>
+        </ng-content>
+    </div>
+    <app-gradient-arrow [reversed]="true" class="gradient-left" [ngClass]="{'hidden': currentPage === 1}"
+        (click)="updateCurrentPage(false)"></app-gradient-arrow>
+    <app-gradient-arrow [reversed]="false" class="gradient-right" [ngClass]="{'hidden': currentPage === maxPages}"
+        (click)="updateCurrentPage()"></app-gradient-arrow>
+</div>

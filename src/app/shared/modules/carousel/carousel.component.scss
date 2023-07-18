@@ -1,0 +1,37 @@
+@use "sass:map";
+@use "src/assets/scss/utilities/variables" as var;
+
+$height: 360px;
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: $height;
+}
+
+.carousel {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+app-gradient-arrow {
+  height: 100%;
+  position: absolute;
+
+  &.gradient-left {
+    left: 0;
+  }
+
+  &.gradient-right {
+    right: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}

@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+
+import { CoreModule } from './core/core.module';
 
 import { Globals } from './globals';
 
 import { AppComponent } from './app.component';
-
-import { CoreModule } from './core/core.module';
 import { authGuard } from './core/guards/auth.guard';
 import { loginGuard } from './core/guards/login.guard';
 
@@ -16,13 +15,19 @@ const routes: Routes = [
     path: 'auth',
     loadChildren: () =>
       import("./features/auth/auth.module").then((m) => m.AuthModule),
-      canMatch: [loginGuard]
+    canMatch: [loginGuard]
   },
   {
     path: 'home',
     loadChildren: () =>
       import("./features/home/home.module").then((m) => m.HomeModule),
-      canMatch: [authGuard]
+    canMatch: [authGuard]
+  },
+  {
+    path: 'movies',
+    loadChildren: () =>
+      import("./features/movies/movies.module").then((m) => m.MoviesModule),
+    canMatch: [authGuard]
   },
   {
     path: '**',
@@ -38,7 +43,6 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     CoreModule,
-    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [Globals],

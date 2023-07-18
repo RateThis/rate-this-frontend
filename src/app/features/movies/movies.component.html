@@ -1,0 +1,7 @@
+<main>
+    <section *ngIf="(topRatedMovies$ | async) as topRatedMovies">
+        <app-carousel [pageSize]="6" [size]="topRatedMovies.length">
+            <app-movie-card *ngFor="let movie of topRatedMovies" [movie]="movie"></app-movie-card>
+        </app-carousel>
+    </section>
+</main>

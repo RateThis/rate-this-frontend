@@ -1,0 +1,21 @@
+.widget-wrapper {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 3px 3px 5px 5px;
+    border-radius: 0 0 0 10px;
+
+    i, p {
+        color: #F0E68C;
+        margin: 0 0.1em;
+    }
+
+    i {
+        position: relative;
+        margin-top: .03em;
+        font-size: 1.2em;
+    }
+
+    p {
+        font-size: 1.3em;
+    }
+}

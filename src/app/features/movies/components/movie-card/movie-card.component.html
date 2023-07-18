@@ -1,0 +1,12 @@
+<div class="card-wrapper">
+    <div class="img-wrapper">
+        <img class="poster" src="{{ movie.poster }}">
+        <div class="score">
+            <app-score-widget score="{{ movie.score }}"></app-score-widget>
+        </div>
+    </div>
+    <div class="title-wrapper">
+        <p class="title">{{ movie.title }}</p>
+        <p class="date">{{ movie.date | date: 'yyyy' }}</p>
+    </div>
+</div>

@@ -3,16 +3,22 @@ import { CommonModule } from '@angular/common';
 
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
+import { ScoreWidgetComponent } from './components/score-widget/score-widget.component';
+import { CarouselModule } from './modules/carousel/carousel.module';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ScoreWidgetComponent
+  ],
   imports: [
     CommonModule
   ],
   exports: [
     CommonModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    CarouselModule,
+    ScoreWidgetComponent
   ]
 })
 export class SharedModule { }

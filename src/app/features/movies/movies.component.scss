@@ -1,0 +1,15 @@
+@use "sass:map";
+@use "src/assets/scss/utilities/variables" as var;
+
+main {
+  position: fixed;
+  height: 100%;
+  width: 90%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: darken(map.get(var.$themes, "primary"), 2%);
+}
+
+.hidden {
+  display: none;
+}

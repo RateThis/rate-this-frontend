@@ -1,0 +1,57 @@
+@use "sass:map";
+@use "src/assets/scss/utilities/variables" as var;
+
+$max-width: 180px;
+
+.card-wrapper {
+  width: min-content;
+  display: flex;
+  flex-direction: column;
+  background-color: map.get(var.$themes, "tertiary");
+
+  &:hover {
+    position: relative;
+
+    p.title {
+      display: initial;
+    }
+  }
+}
+
+.img-wrapper {
+  position: relative;
+  width: 180px;
+}
+
+img.poster {
+  width: 180px;
+}
+
+.score {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.title-wrapper {
+  min-height: 5em;
+  font-size: 1em;
+  width: $max-width;
+  padding: 10px 5px;
+  p.title {
+    display: -webkit-box;
+    max-width: $max-width;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    font-size: 1em;
+    font-weight: bolder;
+    overflow: hidden;
+  }
+  p.date {
+    font-size: 1em;
+    margin-top: 0.2em;
+    color: darken(map.get(var.$themes, "font-primary"), 30%);
+  }
+}
