@@ -9,3 +9,19 @@ body {
   background: map.get(var.$themes, "primary");
   color: map.get(var.$themes, "font-primary");
 }
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px map.get(var.$themes, "secondary");
+}
+
+::-webkit-scrollbar-thumb {
+  background: map.get(var.$themes, "primary");
+  box-shadow: inset 2px 0px 10px darken(map.get(var.$themes, "primary"), 20%);
+  border-radius: 3px;
+  border-top: 2px solid map.get(var.$themes, "primary-font");
+  border-bottom: 2px solid map.get(var.$themes, "primary-font");
+}

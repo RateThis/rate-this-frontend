@@ -9,14 +9,29 @@ import { apiContext } from 'src/app/core/interceptors/api.interceptor';
   providedIn: 'root'
 })
 export class MoviesService {
-  private _apiUrl!: string;
 
-  constructor(private _globals: Globals, private _http: HttpClient) {
-    this._apiUrl = `${this._globals.API_URL}/movies` || '';
-  }
+  constructor(private _globals: Globals, private _http: HttpClient) { }
 
   public getTopRankedMovies(): Observable<any> {
     return this._http.get<any>(`${this._globals.API_MOVIES.URL}/movie/top_rated`, {
+      context: apiContext('movies')
+    });
+  }
+
+  public getNowPlayingMovies(): Observable<any> {
+    return this._http.get<any>(`${this._globals.API_MOVIES.URL}/movie/now_playing`, {
+      context: apiContext('movies')
+    });
+  }
+
+  public getPopularMovies(): Observable<any> {
+    return this._http.get<any>(`${this._globals.API_MOVIES.URL}/movie/popular`, {
+      context: apiContext('movies')
+    });
+  }
+
+  public getMovieById(id: number): Observable<any> {
+    return this._http.get<any>(`${this._globals.API_MOVIES.URL}/movie/${id}`, {
       context: apiContext('movies')
     });
   }

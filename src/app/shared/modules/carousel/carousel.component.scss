@@ -1,22 +1,23 @@
 @use "sass:map";
 @use "src/assets/scss/utilities/variables" as var;
 
-$height: 360px;
+$height: 450px;
 
 .carousel-wrapper {
   position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
   height: $height;
 }
 
 .carousel {
   height: 100%;
-  width: 100%;
+  width: 85%;
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 app-gradient-arrow {

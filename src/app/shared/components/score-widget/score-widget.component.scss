@@ -1,17 +1,21 @@
+@use "sass:map";
+@use "src/assets/scss/utilities/variables" as var;
+
 .widget-wrapper {
     display: flex;
-    background-color: rgba(0, 0, 0, 0.7);
+    position: relative;
+    background-color: inherit;
     padding: 3px 3px 5px 5px;
     border-radius: 0 0 0 10px;
 
     i, p {
-        color: #F0E68C;
+        color: inherit;
         margin: 0 0.1em;
     }
 
     i {
         position: relative;
-        margin-top: .03em;
+        top: .03em;
         font-size: 1.2em;
     }
 

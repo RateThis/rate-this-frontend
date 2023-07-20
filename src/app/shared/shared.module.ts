@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { ScoreWidgetComponent } from './components/score-widget/score-widget.component';
 import { CarouselModule } from './modules/carousel/carousel.module';
+
+import { ScoreWidgetComponent } from './components/score-widget/score-widget.component';
+import { ClipComponent } from './components/clip/clip.component';
+import { MeasureUnitPipe } from './pipes/measure-unit.pipe';
 
 @NgModule({
   declarations: [
-    ScoreWidgetComponent
+    ScoreWidgetComponent,
+    ClipComponent,
+    MeasureUnitPipe
   ],
   imports: [
     CommonModule
@@ -18,7 +22,9 @@ import { CarouselModule } from './modules/carousel/carousel.module';
     ReactiveFormsModule,
     FormsModule,
     CarouselModule,
-    ScoreWidgetComponent
+    ScoreWidgetComponent,
+    ClipComponent,
+    MeasureUnitPipe
   ]
 })
 export class SharedModule { }

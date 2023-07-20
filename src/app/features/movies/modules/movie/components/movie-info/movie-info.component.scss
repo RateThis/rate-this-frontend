@@ -1,0 +1,203 @@
+@use "sass:map";
+@use "src/assets/scss/utilities/variables" as var;
+
+$bg-color: darken(map.get(var.$themes, "primary"), 2%);
+$golden-color: darken(map.get(var.$themes, "golden"), 30%);
+$height: 1000px;
+$font-size: 1rem;
+$offset: 100px;
+$backdrop-width: 1065px;
+$poster-width: 220px;
+
+* {
+  font-family: "Roboto", "Helvetica";
+}
+
+.movie-wrapper {
+  position: relative;
+  display: flex;
+  min-height: $height;
+}
+
+.backdrop-wrapper {
+  position: relative;
+  width: $backdrop-width;
+  margin-top: $offset;
+
+  img.backdrop {
+    width: 100%;
+  }
+
+  &:after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+        180deg,
+        $bg-color,
+        rgba($bg-color, 0.001) 26.7%,
+        rgba($bg-color, 0.001) 64%,
+        $bg-color 100%
+      ),
+      linear-gradient(
+        90deg,
+        $bg-color,
+        rgba($bg-color, 0.001) 32%,
+        rgba($bg-color, 0) 70%,
+        $bg-color 100%
+      ),
+      radial-gradient(
+        circle,
+        rgba($bg-color, 0) 0%,
+        rgba($bg-color, 0) 30%,
+        $bg-color 100%
+      );
+  }
+}
+
+.score-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  z-index: 1;
+
+  app-score-widget {
+    font-size: 2.5em;
+    color: map.get(var.$themes, "golden");
+  }
+
+  span.outer {
+    font-size: 1.1em;
+    margin-top: -0.5em;
+    margin-right: 0.8em;
+    color: darken(map.get(var.$themes, "font-primary"), 25%);
+
+    span.inner {
+      font-weight: bolder;
+      color: darken(map.get(var.$themes, "font-primary"), 15%);
+      margin-left: 0.4em;
+    }
+  }
+}
+
+.title {
+  position: absolute;
+  max-width: 80%;
+  font-size: $font-size * 3;
+  z-index: 1;
+  bottom: 0;
+  left: 3%;
+  text-transform: uppercase;
+  line-height: $font-size * 3.5;
+  font-weight: 600;
+  border-bottom: 2px solid $golden-color;
+  $offset: 10px;
+  padding-bottom: $offset;
+  margin-bottom: -$offset;
+}
+
+article {
+  padding-bottom: 5em;
+}
+
+.article-content {
+  width: $backdrop-width * 0.95;
+  position: relative;
+  margin-left: 3%;
+  padding-top: 20px;
+
+  span.info {
+    display: inline-block;
+    font-size: $font-size;
+    color: darken(map.get(var.$themes, "font-primary"), 25%);
+    margin-bottom: 1em;
+
+    &:not(:first-child)::before {
+      content: "·";
+      margin: 0.3em;
+    }
+  }
+
+  p.desc {
+    font-size: $font-size * 1.3;
+  }
+}
+
+aside {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  $max-width: 470px;
+  max-width: $max-width;
+
+  .panel-wrapper {
+    $bg-color: darken(map.get(var.$themes, "primary"), 5%);
+    max-width: $max-width;
+    width: min-content;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 3em;
+    background-color: $bg-color;
+
+    img.poster {
+      max-width: 300px;
+      width: $poster-width;
+      margin-top: $height/11;
+      opacity: 0.9;
+      box-shadow: 0px 5px 31px -10px rgba(0, 0, 0, 1);
+    }
+
+    table.info-wrapper {
+      $accent-color: darken(map.get(var.$themes, "secondary"), 2%);
+      margin-top: $height/20;
+      width: $poster-width * 1.2;
+      box-shadow: 8px 8px 13px -11px rgba(0, 0, 0, 1);
+
+      tr {
+        border-top: 2px solid $accent-color;
+        border-bottom: 2px solid $accent-color;
+        border-right: none;
+        padding: 1em 0;
+      }
+
+      th,
+      td {
+        text-align: center;
+        vertical-align: center;
+        padding: 1em 0.3em;
+      }
+
+      th {
+        width: 35%;
+        background-color: $accent-color;
+        border-color: 2px solid $accent-color;
+      }
+    }
+  }
+}
+
+.genre-clips {
+  position: absolute;
+  right: 2%;
+  margin-top: 0.7em;
+  app-clip {
+    color: map.get(var.$themes, "font-primary");
+
+    &:not(:first-child) {
+      margin-left: 0.5em;
+    }
+  }
+}
+
+.flex {
+  display: flex;
+}

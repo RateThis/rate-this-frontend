@@ -1,0 +1,49 @@
+<div class="movie-wrapper">
+    <article>
+        <div class="backdrop-wrapper">
+            <img class="backdrop" src="{{ movie.backdrop }}">
+            <h1 class="title">{{ movie.title | uppercase }} </h1>
+            <div class="score-wrapper">
+                <app-score-widget score="{{ parseScore(movie.score) }}"></app-score-widget>
+                <span class="flex outer">votes: <span class="inner">{{ movie.votes | measureUnit }}</span></span>
+            </div>
+        </div>
+        <div class="article-content">
+            <span class="info">{{ movie.date | date: 'YYYY' }}</span>
+            <span class="info">{{ movie.lang | uppercase }}</span>
+            <span class="info">{{ parseTime(+movie.time) }}</span>
+            <span class="info">Original title - {{ movie.original }}</span>
+            <p class="desc">{{ movie.desc }}</p>
+            <div class="genre-clips">
+                <app-clip *ngFor="let genre of movie.genres">{{ genre }}</app-clip>
+            </div>
+        </div>
+    </article>
+    <aside>
+        <div class="panel-wrapper">
+            <img class="poster" src="{{ movie.poster }}">
+            <table class="info-wrapper">
+                <tr class="info">
+                    <th>Title</th>
+                    <td>{{ movie.title }}</td>
+                </tr>
+                <tr class="info">
+                    <th>Release date</th>
+                    <td>{{ movie.date | date: 'd MMMM YYYY' }}</td>
+                </tr>
+                <tr class="info">
+                    <th>Budget</th>
+                    <td>{{ movie.budget !== 0 ? (movie.budget | measureUnit) : 'N/A'}}</td>
+                </tr>
+                <tr class="info">
+                    <th>Revenue</th>
+                    <td>{{ movie.revenue !== 0 ? (movie.revenue | measureUnit) : 'N/A'}}</td>
+                </tr>
+                <tr class="info">
+                    <th>Adults only</th>
+                    <td>{{ movie.adult ? 'Yes' : 'No' }}</td>
+                </tr>
+            </table>
+        </div>
+    </aside>
+</div>

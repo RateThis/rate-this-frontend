@@ -1,7 +1,36 @@
-<main>
-    <section *ngIf="(topRatedMovies$ | async) as topRatedMovies">
-        <app-carousel [pageSize]="6" [size]="topRatedMovies.length">
-            <app-movie-card *ngFor="let movie of topRatedMovies" [movie]="movie"></app-movie-card>
-        </app-carousel>
-    </section>
-</main>
+<div class="bg-image-pattern">
+    <main class="main">
+        <section *ngIf="(topRatedMovies$ | async) as topRatedMovies">
+            <div class="title-wrapper">
+                <i class="title-icon fa-sharp fa-solid fa-play fa-lg"></i>
+                <h2 class="title">Top rated</h2>
+            </div>
+            <app-carousel [pageSize]="pageSize" [size]="topRatedMovies.length">
+                <app-movie-card *ngFor="let movie of topRatedMovies" [movie]="movie"
+                    (click)="onCardClick(movie.id)"></app-movie-card>
+            </app-carousel>
+        </section>
+
+        <section *ngIf="(popularMovies$ | async) as popularMovies">
+            <div class="title-wrapper">
+                <i class="title-icon fa-sharp fa-solid fa-play fa-lg"></i>
+                <h2 class="title">Popular</h2>
+            </div>
+            <app-carousel [pageSize]="pageSize" [size]="popularMovies.length">
+                <app-movie-card *ngFor="let movie of popularMovies" [movie]="movie"
+                    (click)="onCardClick(movie.id)"></app-movie-card>
+            </app-carousel>
+        </section>
+
+        <section *ngIf="(nowPlayingMovies$ | async) as nowPlayingMovies">
+            <div class="title-wrapper">
+                <i class="title-icon fa-sharp fa-solid fa-play fa-lg"></i>
+                <h2 class="title">Now playing</h2>
+            </div>
+            <app-carousel [pageSize]="pageSize" [size]="nowPlayingMovies.length">
+                <app-movie-card *ngFor="let movie of nowPlayingMovies" [movie]="movie"
+                    (click)="onCardClick(movie.id)"></app-movie-card>
+            </app-carousel>
+        </section>
+    </main>
+</div>

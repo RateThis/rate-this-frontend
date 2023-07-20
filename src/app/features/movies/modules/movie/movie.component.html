@@ -1,0 +1,7 @@
+<div class="bg-image-pattern">
+    <main class="main">
+        <div class="movie-info-wrapper">
+            <app-movie-info *ngIf="(movieInfo$ | async) as movieInfo" [movie]="movieInfo"></app-movie-info>
+        </div>
+    </main>
+</div>

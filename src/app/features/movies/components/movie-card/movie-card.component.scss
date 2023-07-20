@@ -11,6 +11,7 @@ $max-width: 180px;
 
   &:hover {
     position: relative;
+    cursor: pointer;
 
     p.title {
       display: initial;
@@ -28,6 +29,9 @@ img.poster {
 }
 
 .score {
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 0 0 0 10px;
+  color: map.get(var.$themes, "golden");
   position: absolute;
   top: 0;
   right: 0;

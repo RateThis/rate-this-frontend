@@ -1,13 +1,26 @@
 @use "sass:map";
 @use "src/assets/scss/utilities/variables" as var;
+@use "src/assets/scss/pages/homepage";
 
-main {
-  position: fixed;
-  height: 100%;
-  width: 90%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: darken(map.get(var.$themes, "primary"), 2%);
+section {
+  .title-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: darken(map.get(var.$themes, "primary"), 5%);
+    padding: 0.5em 4em;
+
+    .title {
+      display: inline-block;
+      margin-left: .35em;
+      font-weight: 700;
+      color: map.get(var.$themes, "primary-font");
+      letter-spacing: 0.1em;
+    }
+  
+    i.title-icon {
+      color: map.get(var.$themes, "golden");
+    }
+  }
 }
 
 .hidden {
