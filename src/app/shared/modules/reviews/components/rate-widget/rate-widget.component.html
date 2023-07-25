@@ -1,0 +1,9 @@
+<div class="rate-wrapper">
+    <i *ngFor="let _ of setArrayFromNumber(10); let i = index" class="fa-regular fa-star star fa-fw" #star>
+        <div class="star-half left" (mouseenter)="onMouseEnter((i+1)*2-1)" (mouseleave)="onMouseLeave()"
+            (click)="onClick((i+1)*2-1)"></div>
+        <div class="star-half right" (mouseenter)="onMouseEnter((i+1)*2)" (mouseleave)="onMouseLeave()"
+            (click)="onClick((i+1)*2)"></div>
+    </i>
+    <i *ngIf="rating" class="fa-solid fa-delete-left fa-fw" (click)="onResetClick()" title="cancel rating"></i>
+</div>

@@ -1,0 +1,9 @@
+@use "sass:map";
+@use "src/assets/scss/utilities/variables" as var;
+@use "src/assets/scss/pages/homepage";
+
+app-rate-widget {
+    font-size: 4em;
+    padding: .2em .5em;
+    color: map.get(var.$themes, "golden");
+}

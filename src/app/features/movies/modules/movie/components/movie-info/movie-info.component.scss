@@ -16,6 +16,7 @@ $poster-width: 220px;
 .movie-wrapper {
   position: relative;
   display: flex;
+  width: 100%;
   min-height: $height;
 }
 

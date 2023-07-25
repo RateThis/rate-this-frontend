@@ -1,0 +1,44 @@
+@use "sass:map";
+@use "src/assets/scss/utilities/variables" as var;
+
+.rate-wrapper {
+    display: flex;
+    align-items: center;
+    font-size: inherit;
+    padding: inherit;
+    color: inherit;
+}
+
+i {
+    font-size: inherit;
+    color: inherit;
+    position: relative;
+}
+
+i.star .star-half {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+
+    &.left {
+        left: 0;
+    }
+
+    &.right {
+        right: 0;
+    }
+}
+
+i.fa-delete-left {
+    position: relative;
+    color: map.get(var.$themes, "danger");
+    font-size: .6em;
+    top: .15em;
+    left: .3em;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

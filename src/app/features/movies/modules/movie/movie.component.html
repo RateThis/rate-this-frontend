@@ -1,7 +1,10 @@
 <div class="bg-image-pattern">
     <main class="main">
-        <div class="movie-info-wrapper">
-            <app-movie-info *ngIf="(movieInfo$ | async) as movieInfo" [movie]="movieInfo"></app-movie-info>
-        </div>
+        <ng-container *ngIf="(movieInfo$ | async) as movieInfo">
+            <div class="movie-info-wrapper">
+                <app-movie-info [movie]="movieInfo"></app-movie-info>
+            </div>
+            <app-review-form></app-review-form>
+        </ng-container>
     </main>
 </div>
