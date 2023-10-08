@@ -6,17 +6,11 @@ import { MovieModule } from './modules/movie/movie.module';
 
 import { MoviesComponent } from './movies.component';
 import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MoviesService } from './movies.service';
 
 @NgModule({
-  declarations: [
-    MoviesComponent,
-    MovieCardComponent
-  ],
-  imports: [
-    MoviesRoutingModule,
-    SharedModule,
-    MovieModule
-  ],
-  providers: [ ]
+  declarations: [MoviesComponent, MovieCardComponent],
+  imports: [MoviesRoutingModule, SharedModule, MovieModule],
+  providers: [MoviesService],
 })
-export class MoviesModule { }
+export class MoviesModule {}

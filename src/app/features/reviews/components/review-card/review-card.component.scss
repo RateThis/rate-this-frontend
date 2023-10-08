@@ -1,0 +1,57 @@
+@use "sass:map";
+@use "src/assets/scss/utilities/variables" as var;
+
+.wrapper {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: inherit;
+  max-height: inherit;
+  max-width: 90%;
+  margin: inherit;
+  font-size: inherit;
+  background-color: inherit;
+  padding: 1em;
+
+  &:hover {
+    max-height: initial;
+
+    .description {
+      display: initial;
+    }
+  }
+
+  .score-wrapper {
+    align-self: flex-end;
+    color: map.get(var.$themes, "golden");
+
+    app-score-widget {
+      font-size: 1em;
+    }
+  }
+
+  .username {
+    font-size: 1.2em;
+  }
+
+  .date {
+    font-size: 0.9em;
+    color: gray;
+  }
+
+  .date-divider {
+    margin: 0 1em;
+  }
+
+  .description {
+    margin-top: 1em;
+    max-width: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow-wrap: break-word;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}

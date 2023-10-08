@@ -4,9 +4,10 @@ import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AuthService } from './services/auth.service';
+import { ApiInterceptor } from './interceptors/api.interceptor';
+import { RefreshTokenInterceptor } from './interceptors/refresh-token.interceptor';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ApiInterceptor } from './interceptors/api.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,12 @@ import { ApiInterceptor } from './interceptors/api.interceptor';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ApiInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RefreshTokenInterceptor,
+      deps: [AuthService],
       multi: true
     }
   ]

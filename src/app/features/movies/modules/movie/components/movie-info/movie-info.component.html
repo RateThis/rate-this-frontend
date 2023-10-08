@@ -4,14 +4,14 @@
             <img class="backdrop" src="{{ movie.backdrop }}">
             <h1 class="title">{{ movie.title | uppercase }} </h1>
             <div class="score-wrapper">
-                <app-score-widget score="{{ parseScore(movie.score) }}"></app-score-widget>
+                <app-score-widget [score]="movie.score | score"></app-score-widget>
                 <span class="flex outer">votes: <span class="inner">{{ movie.votes | measureUnit }}</span></span>
             </div>
         </div>
         <div class="article-content">
             <span class="info">{{ movie.date | date: 'YYYY' }}</span>
             <span class="info">{{ movie.lang | uppercase }}</span>
-            <span class="info">{{ parseTime(+movie.time) }}</span>
+            <span class="info">{{ +movie.time | time }}</span>
             <span class="info">Original title - {{ movie.original }}</span>
             <p class="desc">{{ movie.desc }}</p>
             <div class="genre-clips">

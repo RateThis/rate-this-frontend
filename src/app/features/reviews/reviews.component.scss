@@ -1,0 +1,35 @@
+@use "sass:map";
+@use "src/assets/scss/utilities/variables" as var;
+
+app-review-form {
+    padding: 5em 0;
+}
+
+.reviews-wrapper {
+    background-color: darken(map.get(var.$themes, "primary"), 5%);
+}
+
+
+.review-cards-wrapper {
+    $margin: 50px;
+    padding-bottom: 5em;
+    .reviews-caption {
+        font-size: 1.3em;
+        margin-left: $margin;
+        margin-bottom: .5em;
+    }
+
+    hr {
+        margin-left: $margin;
+        margin-right: 50px;
+    }
+
+    app-review-card {
+        margin-left: $margin;
+        margin-bottom: calc($margin / 0.8);
+        background-color: map.get(var.$themes, "tertiary");
+        font-size: 1em;
+        width: 55em;
+        max-height: 250px;
+    }
+}

@@ -7,5 +7,6 @@ export class Globals {
     KEY: 'beaa23508521ca15de4970c3ce41291b',
     URL: 'https://api.themoviedb.org/3',
     IMAGE_URL: 'https://image.tmdb.org/t/p'
-  }
+  };
+  public readonly IS_LOGGED_KEY = 'isLogged';
 }

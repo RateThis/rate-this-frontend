@@ -1,0 +1,77 @@
+@use "sass:map";
+@use "src/assets/scss/utilities/variables" as var;
+@use "src/assets/scss/components/buttons" as btn;
+
+section {
+  padding: inherit;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.caption {
+  margin-left: 7em;
+}
+
+.rating-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  font-size: 2.5em;
+  padding: 0.2em 0.5em;
+
+  app-rate-widget {
+    margin-left: 0.2em;
+    font-size: 1em;
+    color: map.get(var.$themes, "golden");
+  }
+
+  .score-wrapper {
+    display: flex;
+    justify-content: right;
+    width: 4em;
+    padding-top: 8px;
+
+    app-score-widget {
+      font-weight: bolder;
+      font-size: 0.8em;
+    }
+  }
+}
+
+.form-wrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    margin-left: 4em;
+    width: 80%;
+
+    textarea {
+      color: inherit;
+      overflow: hidden;
+      outline: 2px solid;
+      border-radius: 5px;
+      padding: 1em;
+      font-size: max(1em, 16px);
+      background-color: transparent;
+      width: 100%;
+      min-height: 7em;
+      resize: none;
+    }
+
+    button[type="submit"] {
+      @include btn.dual($bg-color: map.get(var.$themes, "success"), $color: darken(map.get(var.$themes, "primary"), 5%));
+      font-weight: bolder;
+      align-self: flex-end;
+      margin-right: 2em;
+      margin-top: 2em;
+    }
+  }
+}

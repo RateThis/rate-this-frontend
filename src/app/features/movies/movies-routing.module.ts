@@ -7,21 +7,21 @@ import { MovieComponent } from './modules/movie/movie.component';
 const routes: Routes = [
   {
     path: '',
-    component: MoviesComponent
+    component: MoviesComponent,
   },
   {
     path: ':id',
-    component: MovieComponent
+    component: MovieComponent,
   },
   {
     path: '**',
     redirectTo: '',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class MoviesRoutingModule { }
+export class MoviesRoutingModule {}

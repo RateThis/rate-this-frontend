@@ -9,7 +9,7 @@ export class MeasureUnitPipe implements PipeTransform {
     const millions = Math.round(value / 1_000_000);
     if (millions > 0) return `${millions} mln`;
     const thousands = Math.round(value / 1_000);
-    if (thousands > 0) return `${thousands} k`;
+    if (thousands > 10) return `${thousands} k`;
     return value+'';
   }
 

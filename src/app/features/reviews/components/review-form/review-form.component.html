@@ -1,0 +1,17 @@
+<section>
+    <div class="rating-wrapper">
+        <div class="score-wrapper">
+            <app-score-widget [score]="(review?.rating || 0) / 2 | score" [displayStar]="false"></app-score-widget>
+        </div>
+        <app-rate-widget [rating]="review?.rating || 0" (newRatingEvent)="updateRating($event)"></app-rate-widget>
+    </div>
+    <div class="form-wrapper" *ngIf="review?.rating; else noReview">
+        <form [formGroup]="form" (submit)="onSubmit()">
+            <textarea placeholder="Share your thoughts..." name="text" formControlName="text" autoHeight></textarea>
+            <button type="submit">{{ review?.text ? 'Update' : 'Post' }}</button>
+        </form>
+    </div>
+    <ng-template #noReview>
+        <h2 class="caption">No review yet</h2>
+    </ng-template>
+</section>

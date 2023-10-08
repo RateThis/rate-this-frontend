@@ -5,6 +5,7 @@
     display: flex;
     position: relative;
     background-color: inherit;
+    font-weight: inherit;
     padding: 3px 3px 5px 5px;
     border-radius: 0 0 0 10px;
 
@@ -20,6 +21,7 @@
     }
 
     p {
+        font-weight: inherit;
         font-size: 1.3em;
     }
 }

@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "../utilities/variables" as var;
 
-@mixin auth-input() {
+@mixin auth() {
   width: 100%;
   font-size: 1rem;
   font-weight: bolder;

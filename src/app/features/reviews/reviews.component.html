@@ -1,0 +1,10 @@
+<div class="reviews-wrapper" *ngIf="{ userReview: userReview$ | async, count: reviewsCount$ | async } as obj">
+    <app-review-form [userReview]="obj.userReview"></app-review-form>
+    <div class="review-cards-wrapper">
+        <div class="reviews-caption">
+            {{ (obj.count || 0 + (obj.userReview ? 1 : 0)) }}{{ obj.count || 0 + (obj.userReview ? 1 : 0) === 1 ? ' review' : ' reviews' }}
+        </div>
+        <hr>
+        <app-review-card *ngIf="obj.userReview" [review]="obj.userReview"></app-review-card>
+    </div>
+</div>

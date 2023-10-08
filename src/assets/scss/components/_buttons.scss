@@ -1,24 +1,54 @@
 @use "sass:map";
 @use "../utilities/variables" as var;
 
-@mixin auth-button() {
-  background-color: map.get(var.$themes, "focus-secondary");
+%base {
   outline: none;
-  color: map.get(var.$themes, "font-primary");
   transition: 0.1s;
   border-radius: 15px;
-  padding: max(5px, 0.8em) 0;
-  font-size: 0.8em;
-  font-weight: bolder;
-
-  &:hover {
-    background-color: initial;
-    color: map.get(var.$themes, "font-primary");
-    outline: 3px solid map.get(var.$themes, "font-primary");
-  }
+  padding: max(5px, 0.7em) max(5px, 1em);
+  box-sizing: border-box;
 
   &:focus:not(:hover) {
     transition: none;
-    outline: 1px dashed  map.get(var.$themes, "focus-primary");
+    outline: 1px dashed;
+  }
+}
+
+@mixin base(
+  $bg-color: map.get(var.$themes, "focus-secondary"),
+  $color: map.get(var.$themes, "font-primary")
+) {
+  @extend %base;
+  background-color: $bg-color;
+  color: $color;
+  min-width: 6em;
+
+  &:focus:not(:hover) {
+    outline-color: $color;
+  }
+}
+
+@mixin dual(
+  $bg-color: map.get(var.$themes, "focus-secondary"),
+  $color: map.get(var.$themes, "font-primary")
+) {
+  @include base($bg-color, $color);
+
+  &:hover {
+    background-color: $color;
+    color: $bg-color;
+    outline: 2px solid $bg-color;
+  }
+}
+
+@mixin dual-trans(
+  $bg-color: map.get(var.$themes, "focus-secondary"),
+  $color: map.get(var.$themes, "font-primary")
+) {
+  @include base($bg-color, $color);
+
+  &:hover {
+    background-color: transparent;
+    outline: 2px solid $color;
   }
 }

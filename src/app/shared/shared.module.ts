@@ -3,17 +3,20 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { CarouselModule } from './modules/carousel/carousel.module';
-import { ReviewsModule } from './modules/reviews/reviews.module';
 
 import { ScoreWidgetComponent } from './components/score-widget/score-widget.component';
 import { ClipComponent } from './components/clip/clip.component';
 import { MeasureUnitPipe } from './pipes/measure-unit.pipe';
+import { TimePipe } from './pipes/time.pipe';
+import { ScorePipe } from './pipes/score.pipe';
 
 @NgModule({
   declarations: [
     ScoreWidgetComponent,
     ClipComponent,
-    MeasureUnitPipe
+    MeasureUnitPipe,
+    TimePipe,
+    ScorePipe
   ],
   imports: [
     CommonModule
@@ -23,10 +26,11 @@ import { MeasureUnitPipe } from './pipes/measure-unit.pipe';
     ReactiveFormsModule,
     FormsModule,
     CarouselModule,
-    ReviewsModule,
     ScoreWidgetComponent,
     ClipComponent,
-    MeasureUnitPipe
+    MeasureUnitPipe,
+    TimePipe,
+    ScorePipe
   ]
 })
 export class SharedModule { }

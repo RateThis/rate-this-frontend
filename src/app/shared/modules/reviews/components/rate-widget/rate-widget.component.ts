@@ -1,18 +1,28 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, QueryList, Renderer2, ViewChildren } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  QueryList,
+  Renderer2,
+  ViewChildren,
+  OnChanges,
+} from '@angular/core';
 
 @Component({
   selector: 'app-rate-widget',
   templateUrl: './rate-widget.component.html',
-  styleUrls: ['./rate-widget.component.scss']
+  styleUrls: ['./rate-widget.component.scss'],
 })
-export class RateWidgetComponent implements AfterViewInit {
+export class RateWidgetComponent implements OnChanges {
   @ViewChildren('star') starElems?: QueryList<ElementRef>;
   @Input() rating: number = 0;
   @Output() newRatingEvent = new EventEmitter<number>();
 
-  constructor(private _renderer: Renderer2) { }
+  constructor(private _renderer: Renderer2) {}
 
-  public ngAfterViewInit(): void {
+  public ngOnChanges(): void {
     this._setStarsStyle(this.rating);
   }
 
@@ -47,16 +57,15 @@ export class RateWidgetComponent implements AfterViewInit {
         this._renderer.removeClass(el, 'fa-regular');
         this._renderer.removeClass(el, 'fa-star-half-stroke');
         this._renderer.addClass(el, 'fa-solid');
-      }
-      else {
+      } else {
         if (i - 1 == rating) {
           this._renderer.addClass(el, 'fa-star-half-stroke');
         } else {
           this._renderer.removeClass(el, 'fa-solid');
           this._renderer.removeClass(el, 'fa-star-half-stroke');
           this._renderer.addClass(el, 'fa-regular');
-        };
-      };
+        }
+      }
     });
   }
 }

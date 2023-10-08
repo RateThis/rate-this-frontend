@@ -16,7 +16,6 @@ $poster-width: 220px;
 .movie-wrapper {
   position: relative;
   display: flex;
-  width: 100%;
   min-height: $height;
 }
 
@@ -152,14 +151,14 @@ aside {
     img.poster {
       max-width: 300px;
       width: $poster-width;
-      margin-top: $height/11;
+      margin-top: calc($height / 11);
       opacity: 0.9;
       box-shadow: 0px 5px 31px -10px rgba(0, 0, 0, 1);
     }
 
     table.info-wrapper {
       $accent-color: darken(map.get(var.$themes, "secondary"), 2%);
-      margin-top: $height/20;
+      margin-top: calc($height / 20);
       width: $poster-width * 1.2;
       box-shadow: 8px 8px 13px -11px rgba(0, 0, 0, 1);
 
@@ -189,7 +188,7 @@ aside {
 .genre-clips {
   position: absolute;
   right: 2%;
-  margin-top: 0.7em;
+  margin-top: 1em;
   app-clip {
     color: map.get(var.$themes, "font-primary");
 

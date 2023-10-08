@@ -1,0 +1,30 @@
+<div class="wrapper">
+  <span class="score-wrapper">
+    <app-score-widget [score]="review.rating / 2 | score"></app-score-widget>
+  </span>
+  <div class="info-panel">
+    <div class="username" *ngIf="userInfo$ | async as user; else noUser">
+      {{ user.name }}
+    </div>
+    <ng-template class="username" #noUser>
+      <div class="username">[deleted]</div>
+    </ng-template>
+    <ng-container *ngIf="review.createDate !== review.editDate; else oneDate">
+      <span class="date"
+        >Uploaded: {{ review.createDate | date : "dd MMMM YYYY hh:mm a" }}</span
+      >
+      <span class="date date-divider">|</span>
+      <span class="date"
+        >Modified: {{ review.editDate | date : "dd MMMM YYYY hh:mm a" }}</span
+      >
+    </ng-container>
+    <ng-template #oneDate>
+      <span class="date"
+        >Uploaded: {{ review.createDate | date : "dd MMMM YYYY hh:mm a" }}</span
+      >
+    </ng-template>
+  </div>
+  <div class="description">
+    <pre>{{ review.text }}</pre>
+  </div>
+</div>

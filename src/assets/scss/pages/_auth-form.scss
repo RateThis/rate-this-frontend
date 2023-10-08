@@ -10,7 +10,7 @@ form {
   font-size: 1.2em;
 
   input {
-    @include input.auth-input();
+    @include input.auth();
     margin-top: 10px;
     margin-bottom: 5px;
 
@@ -35,7 +35,11 @@ form {
   }
 
   button {
-    @include btn.auth-button();
+    @include btn.dual-trans(
+      $bg-color: map.get(var.$themes, "focus-secondary"),
+      $color: map.get(var.$themes, "font-primary")
+    );
+    font-weight: bolder;
     margin: 10px 0;
   }
 
@@ -50,7 +54,7 @@ form {
 
   app-auth-error {
     display: none;
-    
+
     &:first-of-type {
       display: initial;
     }

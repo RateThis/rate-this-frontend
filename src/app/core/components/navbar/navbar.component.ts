@@ -8,6 +8,9 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent {
   
-  constructor(public authService: AuthService) { }
+  constructor(private _authService: AuthService) { }
 
+  public onLogOut(): void {
+    this._authService.logOut();
+  }
 }

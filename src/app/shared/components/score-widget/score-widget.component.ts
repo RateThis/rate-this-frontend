@@ -6,5 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./score-widget.component.scss']
 })
 export class ScoreWidgetComponent {
-  @Input() score!: string;
+  @Input() score!: number | string;
+  @Input() displayStar: boolean = true;
 }
